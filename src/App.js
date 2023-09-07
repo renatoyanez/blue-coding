@@ -1,24 +1,17 @@
-import logo from './logo.svg';
+import { useState } from "react";
+import Home from './components/Home'
+import { AnyContext } from './context/AnyContext'
 import './App.css';
 
-function App() {
+const App = () => {
+	const [text, setText] = useState("");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+		<AnyContext.Provider value={{ text, setText }}>
+			<div className="App">
+				<Home />
+			</div>
+		</AnyContext.Provider>
   );
 }
 
